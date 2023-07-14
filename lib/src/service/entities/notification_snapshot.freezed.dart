@@ -159,7 +159,7 @@ class _$_NotificationSnapshot implements _NotificationSnapshot {
 abstract class _NotificationSnapshot implements NotificationSnapshot {
   const factory _NotificationSnapshot(
       {@JsonKey(name: 'notifications')
-          required final PositionMarker marker}) = _$_NotificationSnapshot;
+      required final PositionMarker marker}) = _$_NotificationSnapshot;
 
   factory _NotificationSnapshot.fromJson(Map<String, dynamic> json) =
       _$_NotificationSnapshot.fromJson;

@@ -7,7 +7,6 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../core/language.dart';
 import '../../core/visibility.dart';
 import 'account.dart';
 import 'application.dart';
@@ -54,7 +53,7 @@ class Status with _$Status {
     required int reblogsCount,
 
     /// Primary language of this status.
-    Language? language,
+    String? language,
 
     /// ID of the status being replied.
     String? inReplyToId,

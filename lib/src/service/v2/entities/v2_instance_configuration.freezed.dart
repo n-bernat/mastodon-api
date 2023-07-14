@@ -338,7 +338,7 @@ abstract class _V2InstanceConfiguration implements V2InstanceConfiguration {
           required final InstanceAccountsConfiguration accounts,
           required final InstanceStatusesConfiguration statuses,
           @JsonKey(name: 'media_attachments')
-              required final InstanceMediaConfiguration media,
+          required final InstanceMediaConfiguration media,
           required final InstancePollsConfiguration polls,
           required final InstanceTranslationConfiguration translation}) =
       _$_V2InstanceConfiguration;

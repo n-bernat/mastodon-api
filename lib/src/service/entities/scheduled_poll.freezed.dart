@@ -152,13 +152,11 @@ class __$$_ScheduledPollCopyWithImpl<$Res>
 class _$_ScheduledPoll implements _ScheduledPoll {
   const _$_ScheduledPoll(
       {required final List<String> options,
-      @JsonKey(name: 'multiple')
-          this.isMultiple,
-      @JsonKey(name: 'hide_totals')
-          this.isHideTotals,
+      @JsonKey(name: 'multiple') this.isMultiple,
+      @JsonKey(name: 'hide_totals') this.isHideTotals,
       @IntConverter()
       @JsonKey(name: 'expires_in')
-          required this.expiresInSeconds})
+      required this.expiresInSeconds})
       : _options = options;
 
   factory _$_ScheduledPoll.fromJson(Map<String, dynamic> json) =>
@@ -236,13 +234,11 @@ class _$_ScheduledPoll implements _ScheduledPoll {
 abstract class _ScheduledPoll implements ScheduledPoll {
   const factory _ScheduledPoll(
       {required final List<String> options,
-      @JsonKey(name: 'multiple')
-          final bool? isMultiple,
-      @JsonKey(name: 'hide_totals')
-          final bool? isHideTotals,
+      @JsonKey(name: 'multiple') final bool? isMultiple,
+      @JsonKey(name: 'hide_totals') final bool? isHideTotals,
       @IntConverter()
       @JsonKey(name: 'expires_in')
-          required final int expiresInSeconds}) = _$_ScheduledPoll;
+      required final int expiresInSeconds}) = _$_ScheduledPoll;
 
   factory _ScheduledPoll.fromJson(Map<String, dynamic> json) =
       _$_ScheduledPoll.fromJson;

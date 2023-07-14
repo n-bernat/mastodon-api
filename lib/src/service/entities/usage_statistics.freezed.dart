@@ -203,13 +203,11 @@ abstract class _UsageStatistics implements UsageStatistics {
   const factory _UsageStatistics(
       {@JsonKey(name: 'day')
       @UnixTimestampConverter()
-          required final DateTime recordedAt,
-      @JsonKey(name: 'uses')
-      @IntConverter()
-          required final int usedCount,
+      required final DateTime recordedAt,
+      @JsonKey(name: 'uses') @IntConverter() required final int usedCount,
       @JsonKey(name: 'accounts')
       @IntConverter()
-          required final int accountCount}) = _$_UsageStatistics;
+      required final int accountCount}) = _$_UsageStatistics;
 
   factory _UsageStatistics.fromJson(Map<String, dynamic> json) =
       _$_UsageStatistics.fromJson;

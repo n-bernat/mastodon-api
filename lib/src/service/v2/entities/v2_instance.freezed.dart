@@ -40,7 +40,7 @@ mixin _$V2Instance {
   String get version => throw _privateConstructorUsedError;
 
   /// Primary languages of the website and its staff.
-  List<Language> get languages => throw _privateConstructorUsedError;
+  List<String> get languages => throw _privateConstructorUsedError;
 
   /// Links to scaled resolution images, for high DPI screens.
   Thumbnail? get thumbnail => throw _privateConstructorUsedError;
@@ -77,7 +77,7 @@ abstract class $V2InstanceCopyWith<$Res> {
       InstanceUsage usage,
       String sourceUrl,
       String version,
-      List<Language> languages,
+      List<String> languages,
       Thumbnail? thumbnail,
       V2InstanceConfiguration? configuration,
       InstanceRegistrations registrations,
@@ -145,7 +145,7 @@ class _$V2InstanceCopyWithImpl<$Res, $Val extends V2Instance>
       languages: null == languages
           ? _value.languages
           : languages // ignore: cast_nullable_to_non_nullable
-              as List<Language>,
+              as List<String>,
       thumbnail: freezed == thumbnail
           ? _value.thumbnail
           : thumbnail // ignore: cast_nullable_to_non_nullable
@@ -234,7 +234,7 @@ abstract class _$$_V2InstanceCopyWith<$Res>
       InstanceUsage usage,
       String sourceUrl,
       String version,
-      List<Language> languages,
+      List<String> languages,
       Thumbnail? thumbnail,
       V2InstanceConfiguration? configuration,
       InstanceRegistrations registrations,
@@ -305,7 +305,7 @@ class __$$_V2InstanceCopyWithImpl<$Res>
       languages: null == languages
           ? _value._languages
           : languages // ignore: cast_nullable_to_non_nullable
-              as List<Language>,
+              as List<String>,
       thumbnail: freezed == thumbnail
           ? _value.thumbnail
           : thumbnail // ignore: cast_nullable_to_non_nullable
@@ -341,7 +341,7 @@ class _$_V2Instance implements _V2Instance {
       required this.usage,
       required this.sourceUrl,
       required this.version,
-      required final List<Language> languages,
+      required final List<String> languages,
       this.thumbnail,
       this.configuration,
       required this.registrations,
@@ -379,11 +379,11 @@ class _$_V2Instance implements _V2Instance {
   final String version;
 
   /// Primary languages of the website and its staff.
-  final List<Language> _languages;
+  final List<String> _languages;
 
   /// Primary languages of the website and its staff.
   @override
-  List<Language> get languages {
+  List<String> get languages {
     if (_languages is EqualUnmodifiableListView) return _languages;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_languages);
@@ -487,7 +487,7 @@ abstract class _V2Instance implements V2Instance {
       required final InstanceUsage usage,
       required final String sourceUrl,
       required final String version,
-      required final List<Language> languages,
+      required final List<String> languages,
       final Thumbnail? thumbnail,
       final V2InstanceConfiguration? configuration,
       required final InstanceRegistrations registrations,
@@ -525,7 +525,7 @@ abstract class _V2Instance implements V2Instance {
   @override
 
   /// Primary languages of the website and its staff.
-  List<Language> get languages;
+  List<String> get languages;
   @override
 
   /// Links to scaled resolution images, for high DPI screens.

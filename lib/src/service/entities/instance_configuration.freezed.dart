@@ -268,7 +268,7 @@ abstract class _InstanceConfiguration implements InstanceConfiguration {
           {required final InstanceAccountsConfiguration accounts,
           required final InstanceStatusesConfiguration statuses,
           @JsonKey(name: 'media_attachments')
-              required final InstanceMediaConfiguration media,
+          required final InstanceMediaConfiguration media,
           required final InstancePollsConfiguration polls}) =
       _$_InstanceConfiguration;
 

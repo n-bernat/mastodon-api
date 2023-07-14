@@ -199,12 +199,11 @@ class _$_InstanceRegistrations implements _InstanceRegistrations {
 
 abstract class _InstanceRegistrations implements InstanceRegistrations {
   const factory _InstanceRegistrations(
-      {@JsonKey(name: 'enabled')
-          required final bool isEnabled,
-      @JsonKey(name: 'approval_required')
+          {@JsonKey(name: 'enabled') required final bool isEnabled,
+          @JsonKey(name: 'approval_required')
           required final bool isApprovalRequired,
-      @JsonKey(name: 'message')
-          final String? closedMessage}) = _$_InstanceRegistrations;
+          @JsonKey(name: 'message') final String? closedMessage}) =
+      _$_InstanceRegistrations;
 
   factory _InstanceRegistrations.fromJson(Map<String, dynamic> json) =
       _$_InstanceRegistrations.fromJson;

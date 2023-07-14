@@ -5,7 +5,6 @@
 // 🌎 Project imports:
 import 'package:mastodon_api/src/core/client/user_context.dart';
 import 'package:mastodon_api/src/core/country.dart';
-import 'package:mastodon_api/src/core/language.dart';
 import 'package:mastodon_api/src/core/locale.dart';
 import 'package:mastodon_api/src/service/entities/account.dart';
 import 'package:mastodon_api/src/service/entities/account_preferences.dart';
@@ -50,7 +49,7 @@ void main() {
         password: '1234',
         agreement: true,
         locale: Locale(
-          lang: Language.english,
+          lang: 'en',
           country: Country.unitedStates,
         ),
         reason: 'aaa',
@@ -80,7 +79,7 @@ void main() {
           password: '1234',
           agreement: true,
           locale: Locale(
-            lang: Language.english,
+            lang: 'en',
             country: Country.unitedStates,
           ),
           reason: 'aaa',
@@ -107,7 +106,7 @@ void main() {
           password: '1234',
           agreement: true,
           locale: Locale(
-            lang: Language.english,
+            lang: 'en',
             country: Country.unitedStates,
           ),
           reason: 'aaa',
@@ -194,7 +193,7 @@ void main() {
         defaultSettings: AccountDefaultSettingsParam(
           privacy: PostPrivacy.unlisted,
           sensitive: true,
-          language: Language.english,
+          language: 'en',
         ),
         profileMeta: [
           AccountProfileMetaParam(
@@ -231,7 +230,7 @@ void main() {
           defaultSettings: AccountDefaultSettingsParam(
             privacy: PostPrivacy.unlisted,
             sensitive: true,
-            language: Language.english,
+            language: 'en',
           ),
           profileMeta: [
             AccountProfileMetaParam(
@@ -265,7 +264,7 @@ void main() {
           defaultSettings: AccountDefaultSettingsParam(
             privacy: PostPrivacy.unlisted,
             sensitive: true,
-            language: Language.english,
+            language: 'en',
           ),
           profileMeta: [
             AccountProfileMetaParam(

@@ -7,7 +7,6 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../core/language.dart';
 import '../../core/visibility.dart';
 import 'display_media_setting.dart';
 
@@ -27,8 +26,7 @@ class AccountPreferences with _$AccountPreferences {
         required bool isDefaultSensitive,
 
     /// `posting:default:language`
-    @JsonKey(name: 'posting:default:language')
-        required Language defaultLanguage,
+    @JsonKey(name: 'posting:default:language') required String defaultLanguage,
 
     /// `reading:expand:media`
     @JsonKey(name: 'reading:expand:media')

@@ -326,13 +326,11 @@ class _$_TrendsLink implements _TrendsLink {
       required this.html,
       required this.width,
       required this.height,
-      @JsonKey(name: 'image')
-          this.imageUrl,
+      @JsonKey(name: 'image') this.imageUrl,
       required this.embedUrl,
-      @JsonKey(name: 'blurhash')
-          this.blurHash,
+      @JsonKey(name: 'blurhash') this.blurHash,
       @JsonKey(name: 'history')
-          required final List<UsageStatistics> usageHistory})
+      required final List<UsageStatistics> usageHistory})
       : _usageHistory = usageHistory;
 
   factory _$_TrendsLink.fromJson(Map<String, dynamic> json) =>
@@ -492,13 +490,11 @@ abstract class _TrendsLink implements TrendsLink {
       required final String html,
       required final int width,
       required final int height,
-      @JsonKey(name: 'image')
-          final String? imageUrl,
+      @JsonKey(name: 'image') final String? imageUrl,
       required final String embedUrl,
-      @JsonKey(name: 'blurhash')
-          final String? blurHash,
+      @JsonKey(name: 'blurhash') final String? blurHash,
       @JsonKey(name: 'history')
-          required final List<UsageStatistics> usageHistory}) = _$_TrendsLink;
+      required final List<UsageStatistics> usageHistory}) = _$_TrendsLink;
 
   factory _TrendsLink.fromJson(Map<String, dynamic> json) =
       _$_TrendsLink.fromJson;

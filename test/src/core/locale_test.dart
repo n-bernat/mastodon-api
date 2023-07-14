@@ -4,7 +4,6 @@
 
 // 🌎 Project imports:
 import 'package:mastodon_api/src/core/country.dart';
-import 'package:mastodon_api/src/core/language.dart';
 import 'package:mastodon_api/src/core/locale.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
@@ -12,7 +11,7 @@ import 'package:test/test.dart';
 void main() {
   test('.toString', () {
     expect(
-      Locale(lang: Language.english, country: Country.unitedStates).toString(),
+      Locale(lang: 'en', country: Country.unitedStates).toString(),
       'en_US',
     );
   });

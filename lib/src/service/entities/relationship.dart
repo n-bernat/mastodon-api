@@ -7,9 +7,6 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// 🌎 Project imports:
-import '../../core/language.dart';
-
 part 'relationship.freezed.dart';
 part 'relationship.g.dart';
 
@@ -57,7 +54,7 @@ class Relationship with _$Relationship {
     @JsonKey(name: 'endorsed') required bool isEndorsed,
 
     /// Which languages are you following from this user?
-    List<Language>? languages,
+    List<String>? languages,
   }) = _Relationship;
 
   factory Relationship.fromJson(Map<String, Object?> json) =>

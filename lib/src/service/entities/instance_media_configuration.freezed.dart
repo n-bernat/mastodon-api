@@ -289,18 +289,14 @@ class _$_InstanceMediaConfiguration implements _InstanceMediaConfiguration {
 abstract class _InstanceMediaConfiguration
     implements InstanceMediaConfiguration {
   const factory _InstanceMediaConfiguration(
-          {@JsonKey(name: 'image_size_limit')
-              required final int maxImageSize,
-          @JsonKey(name: 'image_matrix_limit')
-              required final int maxImageMatrix,
-          @JsonKey(name: 'video_size_limit')
-              required final int maxVideoSize,
-          @JsonKey(name: 'video_frame_rate_limit')
-              required final int maxVideoRateLimit,
-          @JsonKey(name: 'video_matrix_limit')
-              required final int maxVideoMatrix,
-          required final List<MimeType> supportedMimeTypes}) =
-      _$_InstanceMediaConfiguration;
+      {@JsonKey(name: 'image_size_limit') required final int maxImageSize,
+      @JsonKey(name: 'image_matrix_limit') required final int maxImageMatrix,
+      @JsonKey(name: 'video_size_limit') required final int maxVideoSize,
+      @JsonKey(name: 'video_frame_rate_limit')
+      required final int maxVideoRateLimit,
+      @JsonKey(name: 'video_matrix_limit') required final int maxVideoMatrix,
+      required final List<MimeType>
+          supportedMimeTypes}) = _$_InstanceMediaConfiguration;
 
   factory _InstanceMediaConfiguration.fromJson(Map<String, dynamic> json) =
       _$_InstanceMediaConfiguration.fromJson;

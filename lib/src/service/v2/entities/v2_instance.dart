@@ -8,7 +8,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../../core/language.dart';
 import '../../entities/instance_contact.dart';
 import '../../entities/instance_registrations.dart';
 import '../../entities/instance_usage.dart';
@@ -43,7 +42,7 @@ class V2Instance with _$V2Instance {
     required String version,
 
     /// Primary languages of the website and its staff.
-    required List<Language> languages,
+    required List<String> languages,
 
     /// Links to scaled resolution images, for high DPI screens.
     Thumbnail? thumbnail,

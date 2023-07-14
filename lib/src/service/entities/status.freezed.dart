@@ -49,7 +49,7 @@ mixin _$Status {
   int get reblogsCount => throw _privateConstructorUsedError;
 
   /// Primary language of this status.
-  Language? get language => throw _privateConstructorUsedError;
+  String? get language => throw _privateConstructorUsedError;
 
   /// ID of the status being replied.
   String? get inReplyToId => throw _privateConstructorUsedError;
@@ -129,7 +129,7 @@ abstract class $StatusCopyWith<$Res> {
       int favouritesCount,
       int repliesCount,
       int reblogsCount,
-      Language? language,
+      String? language,
       String? inReplyToId,
       String? inReplyToAccountId,
       @JsonKey(name: 'favourited') bool? isFavourited,
@@ -235,7 +235,7 @@ class _$StatusCopyWithImpl<$Res, $Val extends Status>
       language: freezed == language
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
-              as Language?,
+              as String?,
       inReplyToId: freezed == inReplyToId
           ? _value.inReplyToId
           : inReplyToId // ignore: cast_nullable_to_non_nullable
@@ -368,7 +368,7 @@ abstract class _$$_StatusCopyWith<$Res> implements $StatusCopyWith<$Res> {
       int favouritesCount,
       int repliesCount,
       int reblogsCount,
-      Language? language,
+      String? language,
       String? inReplyToId,
       String? inReplyToAccountId,
       @JsonKey(name: 'favourited') bool? isFavourited,
@@ -475,7 +475,7 @@ class __$$_StatusCopyWithImpl<$Res>
       language: freezed == language
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
-              as Language?,
+              as String?,
       inReplyToId: freezed == inReplyToId
           ? _value.inReplyToId
           : inReplyToId // ignore: cast_nullable_to_non_nullable
@@ -626,7 +626,7 @@ class _$_Status implements _Status {
 
   /// Primary language of this status.
   @override
-  final Language? language;
+  final String? language;
 
   /// ID of the status being replied.
   @override
@@ -838,7 +838,7 @@ abstract class _Status implements Status {
       required final int favouritesCount,
       required final int repliesCount,
       required final int reblogsCount,
-      final Language? language,
+      final String? language,
       final String? inReplyToId,
       final String? inReplyToAccountId,
       @JsonKey(name: 'favourited') final bool? isFavourited,
@@ -899,7 +899,7 @@ abstract class _Status implements Status {
   @override
 
   /// Primary language of this status.
-  Language? get language;
+  String? get language;
   @override
 
   /// ID of the status being replied.

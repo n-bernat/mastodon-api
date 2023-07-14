@@ -5,7 +5,6 @@
 // 🌎 Project imports:
 import '../../../core/client/client_context.dart';
 import '../../../core/client/user_context.dart';
-import '../../../core/language.dart';
 import '../../../core/visibility.dart';
 import '../../base_service.dart';
 import '../../entities/account.dart';
@@ -79,7 +78,7 @@ abstract class StatusesV1Service {
     String? inReplyToStatusId,
     bool? sensitive,
     Visibility? visibility,
-    Language? language,
+    String? language,
     List<String>? mediaIds,
     StatusPollParam? poll,
   });
@@ -156,7 +155,7 @@ abstract class StatusesV1Service {
     required String text,
     String? spoilerText,
     bool? sensitive,
-    Language? language,
+    String? language,
     List<String>? mediaIds,
     StatusPollParam? poll,
   });
@@ -734,7 +733,7 @@ abstract class StatusesV1Service {
     String? inReplyToStatusId,
     bool? sensitive,
     Visibility? visibility,
-    Language? language,
+    String? language,
     List<String>? mediaIds,
     StatusPollParam? poll,
   });
@@ -868,7 +867,7 @@ class _StatusesV1Service extends BaseService implements StatusesV1Service {
     String? inReplyToStatusId,
     bool? sensitive,
     Visibility? visibility,
-    Language? language,
+    String? language,
     List<String>? mediaIds,
     StatusPollParam? poll,
   }) async =>
@@ -913,7 +912,7 @@ class _StatusesV1Service extends BaseService implements StatusesV1Service {
     required String text,
     String? spoilerText,
     bool? sensitive,
-    Language? language,
+    String? language,
     List<String>? mediaIds,
     StatusPollParam? poll,
   }) async =>
@@ -1216,7 +1215,7 @@ class _StatusesV1Service extends BaseService implements StatusesV1Service {
     String? inReplyToStatusId,
     bool? sensitive,
     Visibility? visibility,
-    Language? language,
+    String? language,
     List<String>? mediaIds,
     StatusPollParam? poll,
   }) async =>

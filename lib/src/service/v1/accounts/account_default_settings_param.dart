@@ -3,7 +3,6 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import '../../../core/language.dart';
 import 'post_privacy.dart';
 
 class AccountDefaultSettingsParam {
@@ -21,5 +20,5 @@ class AccountDefaultSettingsParam {
   final bool? sensitive;
 
   /// Default language to use for authored statuses (ISO 6391)
-  final Language language;
+  final String language;
 }

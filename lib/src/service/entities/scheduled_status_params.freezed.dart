@@ -38,7 +38,7 @@ mixin _$ScheduledStatusParams {
   String? get inReplyToStatusId => throw _privateConstructorUsedError;
 
   /// The language that will be used for the status.
-  Language? get language => throw _privateConstructorUsedError;
+  String? get language => throw _privateConstructorUsedError;
 
   ///  The visibility that the status will have once it is posted.
   Visibility? get visibility => throw _privateConstructorUsedError;
@@ -68,7 +68,7 @@ abstract class $ScheduledStatusParamsCopyWith<$Res> {
       ScheduledPoll? poll,
       List<String>? mediaIds,
       @JsonKey(name: 'in_reply_to_id') String? inReplyToStatusId,
-      Language? language,
+      String? language,
       Visibility? visibility,
       String? idempotency,
       @JsonKey(name: 'sensitive') bool? isSensitive});
@@ -124,7 +124,7 @@ class _$ScheduledStatusParamsCopyWithImpl<$Res,
       language: freezed == language
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
-              as Language?,
+              as String?,
       visibility: freezed == visibility
           ? _value.visibility
           : visibility // ignore: cast_nullable_to_non_nullable
@@ -167,7 +167,7 @@ abstract class _$$_ScheduledStatusParamsCopyWith<$Res>
       ScheduledPoll? poll,
       List<String>? mediaIds,
       @JsonKey(name: 'in_reply_to_id') String? inReplyToStatusId,
-      Language? language,
+      String? language,
       Visibility? visibility,
       String? idempotency,
       @JsonKey(name: 'sensitive') bool? isSensitive});
@@ -221,7 +221,7 @@ class __$$_ScheduledStatusParamsCopyWithImpl<$Res>
       language: freezed == language
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
-              as Language?,
+              as String?,
       visibility: freezed == visibility
           ? _value.visibility
           : visibility // ignore: cast_nullable_to_non_nullable
@@ -289,7 +289,7 @@ class _$_ScheduledStatusParams implements _ScheduledStatusParams {
 
   /// The language that will be used for the status.
   @override
-  final Language? language;
+  final String? language;
 
   ///  The visibility that the status will have once it is posted.
   @override
@@ -367,7 +367,7 @@ abstract class _ScheduledStatusParams implements ScheduledStatusParams {
           final ScheduledPoll? poll,
           final List<String>? mediaIds,
           @JsonKey(name: 'in_reply_to_id') final String? inReplyToStatusId,
-          final Language? language,
+          final String? language,
           final Visibility? visibility,
           final String? idempotency,
           @JsonKey(name: 'sensitive') final bool? isSensitive}) =
@@ -400,7 +400,7 @@ abstract class _ScheduledStatusParams implements ScheduledStatusParams {
   @override
 
   /// The language that will be used for the status.
-  Language? get language;
+  String? get language;
   @override
 
   ///  The visibility that the status will have once it is posted.

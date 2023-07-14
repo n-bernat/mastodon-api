@@ -36,7 +36,7 @@ mixin _$Instance {
   String get version => throw _privateConstructorUsedError;
 
   /// Primary languages of the website and its staff.
-  List<Language> get languages => throw _privateConstructorUsedError;
+  List<String> get languages => throw _privateConstructorUsedError;
 
   /// Statistics about how much information the instance contains.
   @JsonKey(name: 'stats')
@@ -84,7 +84,7 @@ abstract class $InstanceCopyWith<$Res> {
       String shortDescription,
       String email,
       String version,
-      List<Language> languages,
+      List<String> languages,
       @JsonKey(name: 'stats') InstanceStatistics statistics,
       String? thumbnail,
       @JsonKey(name: 'registrations') bool isRegistrationsEnabled,
@@ -151,7 +151,7 @@ class _$InstanceCopyWithImpl<$Res, $Val extends Instance>
       languages: null == languages
           ? _value.languages
           : languages // ignore: cast_nullable_to_non_nullable
-              as List<Language>,
+              as List<String>,
       statistics: null == statistics
           ? _value.statistics
           : statistics // ignore: cast_nullable_to_non_nullable
@@ -233,7 +233,7 @@ abstract class _$$_InstanceCopyWith<$Res> implements $InstanceCopyWith<$Res> {
       String shortDescription,
       String email,
       String version,
-      List<Language> languages,
+      List<String> languages,
       @JsonKey(name: 'stats') InstanceStatistics statistics,
       String? thumbnail,
       @JsonKey(name: 'registrations') bool isRegistrationsEnabled,
@@ -301,7 +301,7 @@ class __$$_InstanceCopyWithImpl<$Res>
       languages: null == languages
           ? _value._languages
           : languages // ignore: cast_nullable_to_non_nullable
-              as List<Language>,
+              as List<String>,
       statistics: null == statistics
           ? _value.statistics
           : statistics // ignore: cast_nullable_to_non_nullable
@@ -348,7 +348,7 @@ class _$_Instance implements _Instance {
       required this.shortDescription,
       required this.email,
       required this.version,
-      required final List<Language> languages,
+      required final List<String> languages,
       @JsonKey(name: 'stats') required this.statistics,
       this.thumbnail,
       @JsonKey(name: 'registrations') required this.isRegistrationsEnabled,
@@ -384,11 +384,11 @@ class _$_Instance implements _Instance {
   final String version;
 
   /// Primary languages of the website and its staff.
-  final List<Language> _languages;
+  final List<String> _languages;
 
   /// Primary languages of the website and its staff.
   @override
-  List<Language> get languages {
+  List<String> get languages {
     if (_languages is EqualUnmodifiableListView) return _languages;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_languages);
@@ -514,16 +514,14 @@ abstract class _Instance implements Instance {
       required final String shortDescription,
       required final String email,
       required final String version,
-      required final List<Language> languages,
-      @JsonKey(name: 'stats')
-          required final InstanceStatistics statistics,
+      required final List<String> languages,
+      @JsonKey(name: 'stats') required final InstanceStatistics statistics,
       final String? thumbnail,
       @JsonKey(name: 'registrations')
-          required final bool isRegistrationsEnabled,
+      required final bool isRegistrationsEnabled,
       @JsonKey(name: 'approval_required')
-          required final bool isApprovalRequired,
-      @JsonKey(name: 'invites_enabled')
-          required final bool isInvitesEnabled,
+      required final bool isApprovalRequired,
+      @JsonKey(name: 'invites_enabled') required final bool isInvitesEnabled,
       final InstanceConfiguration? configuration,
       final Account? contactAccount,
       final List<Rule>? rules}) = _$_Instance;
@@ -553,7 +551,7 @@ abstract class _Instance implements Instance {
   @override
 
   /// Primary languages of the website and its staff.
-  List<Language> get languages;
+  List<String> get languages;
   @override
 
   /// Statistics about how much information the instance contains.

@@ -72,7 +72,7 @@ mixin _$Relationship {
   bool get isEndorsed => throw _privateConstructorUsedError;
 
   /// Which languages are you following from this user?
-  List<Language>? get languages => throw _privateConstructorUsedError;
+  List<String>? get languages => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -100,7 +100,7 @@ abstract class $RelationshipCopyWith<$Res> {
       @JsonKey(name: 'requested') bool isRequested,
       @JsonKey(name: 'domain_blocking') bool isDomainBlocking,
       @JsonKey(name: 'endorsed') bool isEndorsed,
-      List<Language>? languages});
+      List<String>? languages});
 }
 
 /// @nodoc
@@ -187,7 +187,7 @@ class _$RelationshipCopyWithImpl<$Res, $Val extends Relationship>
       languages: freezed == languages
           ? _value.languages
           : languages // ignore: cast_nullable_to_non_nullable
-              as List<Language>?,
+              as List<String>?,
     ) as $Val);
   }
 }
@@ -214,7 +214,7 @@ abstract class _$$_RelationshipCopyWith<$Res>
       @JsonKey(name: 'requested') bool isRequested,
       @JsonKey(name: 'domain_blocking') bool isDomainBlocking,
       @JsonKey(name: 'endorsed') bool isEndorsed,
-      List<Language>? languages});
+      List<String>? languages});
 }
 
 /// @nodoc
@@ -299,7 +299,7 @@ class __$$_RelationshipCopyWithImpl<$Res>
       languages: freezed == languages
           ? _value._languages
           : languages // ignore: cast_nullable_to_non_nullable
-              as List<Language>?,
+              as List<String>?,
     ));
   }
 }
@@ -310,31 +310,20 @@ class __$$_RelationshipCopyWithImpl<$Res>
 class _$_Relationship implements _Relationship {
   const _$_Relationship(
       {required this.id,
-      @JsonKey(name: 'note')
-          required this.bio,
-      @JsonKey(name: 'following')
-          required this.isFollowing,
-      @JsonKey(name: 'followed_by')
-          required this.isFollowed,
-      @JsonKey(name: 'showing_reblogs')
-          required this.isShowingReblogs,
-      @JsonKey(name: 'notifying')
-          required this.isNotifying,
-      @JsonKey(name: 'blocking')
-          required this.isBlocking,
-      @JsonKey(name: 'blocked_by')
-          required this.isBlocked,
-      @JsonKey(name: 'muting')
-          required this.isMuting,
+      @JsonKey(name: 'note') required this.bio,
+      @JsonKey(name: 'following') required this.isFollowing,
+      @JsonKey(name: 'followed_by') required this.isFollowed,
+      @JsonKey(name: 'showing_reblogs') required this.isShowingReblogs,
+      @JsonKey(name: 'notifying') required this.isNotifying,
+      @JsonKey(name: 'blocking') required this.isBlocking,
+      @JsonKey(name: 'blocked_by') required this.isBlocked,
+      @JsonKey(name: 'muting') required this.isMuting,
       @JsonKey(name: 'muting_notifications')
-          required this.isMutingNotifications,
-      @JsonKey(name: 'requested')
-          required this.isRequested,
-      @JsonKey(name: 'domain_blocking')
-          required this.isDomainBlocking,
-      @JsonKey(name: 'endorsed')
-          required this.isEndorsed,
-      final List<Language>? languages})
+      required this.isMutingNotifications,
+      @JsonKey(name: 'requested') required this.isRequested,
+      @JsonKey(name: 'domain_blocking') required this.isDomainBlocking,
+      @JsonKey(name: 'endorsed') required this.isEndorsed,
+      final List<String>? languages})
       : _languages = languages;
 
   factory _$_Relationship.fromJson(Map<String, dynamic> json) =>
@@ -405,11 +394,11 @@ class _$_Relationship implements _Relationship {
   final bool isEndorsed;
 
   /// Which languages are you following from this user?
-  final List<Language>? _languages;
+  final List<String>? _languages;
 
   /// Which languages are you following from this user?
   @override
-  List<Language>? get languages {
+  List<String>? get languages {
     final value = _languages;
     if (value == null) return null;
     if (_languages is EqualUnmodifiableListView) return _languages;
@@ -491,31 +480,20 @@ class _$_Relationship implements _Relationship {
 abstract class _Relationship implements Relationship {
   const factory _Relationship(
       {required final String id,
-      @JsonKey(name: 'note')
-          required final String bio,
-      @JsonKey(name: 'following')
-          required final bool isFollowing,
-      @JsonKey(name: 'followed_by')
-          required final bool isFollowed,
-      @JsonKey(name: 'showing_reblogs')
-          required final bool isShowingReblogs,
-      @JsonKey(name: 'notifying')
-          required final bool isNotifying,
-      @JsonKey(name: 'blocking')
-          required final bool isBlocking,
-      @JsonKey(name: 'blocked_by')
-          required final bool isBlocked,
-      @JsonKey(name: 'muting')
-          required final bool isMuting,
+      @JsonKey(name: 'note') required final String bio,
+      @JsonKey(name: 'following') required final bool isFollowing,
+      @JsonKey(name: 'followed_by') required final bool isFollowed,
+      @JsonKey(name: 'showing_reblogs') required final bool isShowingReblogs,
+      @JsonKey(name: 'notifying') required final bool isNotifying,
+      @JsonKey(name: 'blocking') required final bool isBlocking,
+      @JsonKey(name: 'blocked_by') required final bool isBlocked,
+      @JsonKey(name: 'muting') required final bool isMuting,
       @JsonKey(name: 'muting_notifications')
-          required final bool isMutingNotifications,
-      @JsonKey(name: 'requested')
-          required final bool isRequested,
-      @JsonKey(name: 'domain_blocking')
-          required final bool isDomainBlocking,
-      @JsonKey(name: 'endorsed')
-          required final bool isEndorsed,
-      final List<Language>? languages}) = _$_Relationship;
+      required final bool isMutingNotifications,
+      @JsonKey(name: 'requested') required final bool isRequested,
+      @JsonKey(name: 'domain_blocking') required final bool isDomainBlocking,
+      @JsonKey(name: 'endorsed') required final bool isEndorsed,
+      final List<String>? languages}) = _$_Relationship;
 
   factory _Relationship.fromJson(Map<String, dynamic> json) =
       _$_Relationship.fromJson;
@@ -587,7 +565,7 @@ abstract class _Relationship implements Relationship {
   @override
 
   /// Which languages are you following from this user?
-  List<Language>? get languages;
+  List<String>? get languages;
   @override
   @JsonKey(ignore: true)
   _$$_RelationshipCopyWith<_$_Relationship> get copyWith =>

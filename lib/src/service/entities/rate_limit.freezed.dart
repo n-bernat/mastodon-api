@@ -193,12 +193,10 @@ class _$_RateLimit extends _RateLimit {
 
 abstract class _RateLimit extends RateLimit {
   const factory _RateLimit(
-      {@JsonKey(name: 'x-ratelimit-limit')
-          required final int limitCount,
-      @JsonKey(name: 'x-ratelimit-remaining')
-          required final int remainingCount,
+      {@JsonKey(name: 'x-ratelimit-limit') required final int limitCount,
+      @JsonKey(name: 'x-ratelimit-remaining') required final int remainingCount,
       @JsonKey(name: 'x-ratelimit-reset')
-          required final DateTime resetAt}) = _$_RateLimit;
+      required final DateTime resetAt}) = _$_RateLimit;
   const _RateLimit._() : super._();
 
   factory _RateLimit.fromJson(Map<String, dynamic> json) =

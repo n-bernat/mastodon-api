@@ -30,7 +30,7 @@ mixin _$AccountPreferences {
 
   /// `posting:default:language`
   @JsonKey(name: 'posting:default:language')
-  Language get defaultLanguage => throw _privateConstructorUsedError;
+  String get defaultLanguage => throw _privateConstructorUsedError;
 
   /// `reading:expand:media`
   @JsonKey(name: 'reading:expand:media')
@@ -55,15 +55,12 @@ abstract class $AccountPreferencesCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: 'posting:default:visibility')
-          Visibility defaultVisibility,
-      @JsonKey(name: 'posting:default:sensitive')
-          bool isDefaultSensitive,
-      @JsonKey(name: 'posting:default:language')
-          Language defaultLanguage,
+      Visibility defaultVisibility,
+      @JsonKey(name: 'posting:default:sensitive') bool isDefaultSensitive,
+      @JsonKey(name: 'posting:default:language') String defaultLanguage,
       @JsonKey(name: 'reading:expand:media')
-          DisplayMediaSetting expandMediaSetting,
-      @JsonKey(name: 'reading:expand:spoilers')
-          bool hasExpandSpoilers});
+      DisplayMediaSetting expandMediaSetting,
+      @JsonKey(name: 'reading:expand:spoilers') bool hasExpandSpoilers});
 }
 
 /// @nodoc
@@ -97,7 +94,7 @@ class _$AccountPreferencesCopyWithImpl<$Res, $Val extends AccountPreferences>
       defaultLanguage: null == defaultLanguage
           ? _value.defaultLanguage
           : defaultLanguage // ignore: cast_nullable_to_non_nullable
-              as Language,
+              as String,
       expandMediaSetting: null == expandMediaSetting
           ? _value.expandMediaSetting
           : expandMediaSetting // ignore: cast_nullable_to_non_nullable
@@ -120,15 +117,12 @@ abstract class _$$_AccountPreferencesCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: 'posting:default:visibility')
-          Visibility defaultVisibility,
-      @JsonKey(name: 'posting:default:sensitive')
-          bool isDefaultSensitive,
-      @JsonKey(name: 'posting:default:language')
-          Language defaultLanguage,
+      Visibility defaultVisibility,
+      @JsonKey(name: 'posting:default:sensitive') bool isDefaultSensitive,
+      @JsonKey(name: 'posting:default:language') String defaultLanguage,
       @JsonKey(name: 'reading:expand:media')
-          DisplayMediaSetting expandMediaSetting,
-      @JsonKey(name: 'reading:expand:spoilers')
-          bool hasExpandSpoilers});
+      DisplayMediaSetting expandMediaSetting,
+      @JsonKey(name: 'reading:expand:spoilers') bool hasExpandSpoilers});
 }
 
 /// @nodoc
@@ -160,7 +154,7 @@ class __$$_AccountPreferencesCopyWithImpl<$Res>
       defaultLanguage: null == defaultLanguage
           ? _value.defaultLanguage
           : defaultLanguage // ignore: cast_nullable_to_non_nullable
-              as Language,
+              as String,
       expandMediaSetting: null == expandMediaSetting
           ? _value.expandMediaSetting
           : expandMediaSetting // ignore: cast_nullable_to_non_nullable
@@ -179,15 +173,13 @@ class __$$_AccountPreferencesCopyWithImpl<$Res>
 class _$_AccountPreferences implements _AccountPreferences {
   const _$_AccountPreferences(
       {@JsonKey(name: 'posting:default:visibility')
-          required this.defaultVisibility,
+      required this.defaultVisibility,
       @JsonKey(name: 'posting:default:sensitive')
-          required this.isDefaultSensitive,
-      @JsonKey(name: 'posting:default:language')
-          required this.defaultLanguage,
-      @JsonKey(name: 'reading:expand:media')
-          required this.expandMediaSetting,
+      required this.isDefaultSensitive,
+      @JsonKey(name: 'posting:default:language') required this.defaultLanguage,
+      @JsonKey(name: 'reading:expand:media') required this.expandMediaSetting,
       @JsonKey(name: 'reading:expand:spoilers')
-          required this.hasExpandSpoilers});
+      required this.hasExpandSpoilers});
 
   factory _$_AccountPreferences.fromJson(Map<String, dynamic> json) =>
       _$$_AccountPreferencesFromJson(json);
@@ -205,7 +197,7 @@ class _$_AccountPreferences implements _AccountPreferences {
   /// `posting:default:language`
   @override
   @JsonKey(name: 'posting:default:language')
-  final Language defaultLanguage;
+  final String defaultLanguage;
 
   /// `reading:expand:media`
   @override
@@ -267,15 +259,15 @@ class _$_AccountPreferences implements _AccountPreferences {
 abstract class _AccountPreferences implements AccountPreferences {
   const factory _AccountPreferences(
       {@JsonKey(name: 'posting:default:visibility')
-          required final Visibility defaultVisibility,
+      required final Visibility defaultVisibility,
       @JsonKey(name: 'posting:default:sensitive')
-          required final bool isDefaultSensitive,
+      required final bool isDefaultSensitive,
       @JsonKey(name: 'posting:default:language')
-          required final Language defaultLanguage,
+      required final String defaultLanguage,
       @JsonKey(name: 'reading:expand:media')
-          required final DisplayMediaSetting expandMediaSetting,
+      required final DisplayMediaSetting expandMediaSetting,
       @JsonKey(name: 'reading:expand:spoilers')
-          required final bool hasExpandSpoilers}) = _$_AccountPreferences;
+      required final bool hasExpandSpoilers}) = _$_AccountPreferences;
 
   factory _AccountPreferences.fromJson(Map<String, dynamic> json) =
       _$_AccountPreferences.fromJson;
@@ -294,7 +286,7 @@ abstract class _AccountPreferences implements AccountPreferences {
 
   /// `posting:default:language`
   @JsonKey(name: 'posting:default:language')
-  Language get defaultLanguage;
+  String get defaultLanguage;
   @override
 
   /// `reading:expand:media`

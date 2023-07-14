@@ -154,17 +154,12 @@ class __$$_InstanceActivityCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$_InstanceActivity implements _InstanceActivity {
   const _$_InstanceActivity(
-      {@UnixTimestampConverter()
-          required this.week,
-      @JsonKey(name: 'statuses')
-      @IntConverter()
-          required this.statusCount,
-      @JsonKey(name: 'logins')
-      @IntConverter()
-          required this.loginCount,
+      {@UnixTimestampConverter() required this.week,
+      @JsonKey(name: 'statuses') @IntConverter() required this.statusCount,
+      @JsonKey(name: 'logins') @IntConverter() required this.loginCount,
       @JsonKey(name: 'registrations')
       @IntConverter()
-          required this.registrationCount});
+      required this.registrationCount});
 
   factory _$_InstanceActivity.fromJson(Map<String, dynamic> json) =>
       _$$_InstanceActivityFromJson(json);
@@ -232,17 +227,12 @@ class _$_InstanceActivity implements _InstanceActivity {
 
 abstract class _InstanceActivity implements InstanceActivity {
   const factory _InstanceActivity(
-      {@UnixTimestampConverter()
-          required final DateTime week,
-      @JsonKey(name: 'statuses')
-      @IntConverter()
-          required final int statusCount,
-      @JsonKey(name: 'logins')
-      @IntConverter()
-          required final int loginCount,
+      {@UnixTimestampConverter() required final DateTime week,
+      @JsonKey(name: 'statuses') @IntConverter() required final int statusCount,
+      @JsonKey(name: 'logins') @IntConverter() required final int loginCount,
       @JsonKey(name: 'registrations')
       @IntConverter()
-          required final int registrationCount}) = _$_InstanceActivity;
+      required final int registrationCount}) = _$_InstanceActivity;
 
   factory _InstanceActivity.fromJson(Map<String, dynamic> json) =
       _$_InstanceActivity.fromJson;

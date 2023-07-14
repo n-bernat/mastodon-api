@@ -4,7 +4,6 @@
 
 // 🌎 Project imports:
 import 'country.dart';
-import 'language.dart';
 
 class Locale {
   /// Returns the new instance of [Locale].
@@ -14,11 +13,11 @@ class Locale {
   });
 
   /// The language
-  final Language lang;
+  final String lang;
 
   /// The country
   final Country country;
 
   @override
-  String toString() => '${lang.code}_${country.code}';
+  String toString() => '${lang}_${country.code}';
 }

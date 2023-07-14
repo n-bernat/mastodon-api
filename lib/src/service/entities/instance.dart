@@ -8,7 +8,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../core/language.dart';
 import 'account.dart';
 import 'instance_configuration.dart';
 import 'instance_statistics.dart';
@@ -37,7 +36,7 @@ class Instance with _$Instance {
     required String version,
 
     /// Primary languages of the website and its staff.
-    required List<Language> languages,
+    required List<String> languages,
 
     /// Statistics about how much information the instance contains.
     @JsonKey(name: 'stats') required InstanceStatistics statistics,

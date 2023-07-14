@@ -11,7 +11,6 @@ import 'package:http/http.dart';
 // 🌎 Project imports:
 import '../../../core/client/client_context.dart';
 import '../../../core/client/user_context.dart';
-import '../../../core/language.dart';
 import '../../../core/locale.dart';
 import '../../base_service.dart';
 import '../../entities/account.dart';
@@ -424,7 +423,7 @@ abstract class AccountsV1Service {
     required String accountId,
     bool? receiveReblogs,
     bool? receiveNotifications,
-    List<Language>? filteringLanguages,
+    List<String>? filteringLanguages,
   });
 
   /// Unfollow the given account.
@@ -1593,7 +1592,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
     required String accountId,
     bool? receiveReblogs,
     bool? receiveNotifications,
-    List<Language>? filteringLanguages,
+    List<String>? filteringLanguages,
   }) async =>
       super.transformSingleDataResponse(
         await super.post(
@@ -1602,7 +1601,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
           body: {
             'reblogs': receiveReblogs,
             'notify': receiveNotifications,
-            'languages': filteringLanguages?.map((e) => e.value).toList(),
+            'languages': filteringLanguages,
           },
         ),
         dataBuilder: Relationship.fromJson,
