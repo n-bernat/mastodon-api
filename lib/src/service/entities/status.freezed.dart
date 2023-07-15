@@ -97,7 +97,7 @@ mixin _$Status {
   Status? get reblog => throw _privateConstructorUsedError;
 
   /// Media that is attached to this status.
-  List<MediaAttachment> get mediaAttachments =>
+  List<MediaAttachment>? get mediaAttachments =>
       throw _privateConstructorUsedError;
 
   /// Custom emoji to be used when rendering status content.
@@ -143,7 +143,7 @@ abstract class $StatusCopyWith<$Res> {
       Application? application,
       Poll? poll,
       Status? reblog,
-      List<MediaAttachment> mediaAttachments,
+      List<MediaAttachment>? mediaAttachments,
       List<Emoji> emojis,
       List<Tag> tags,
       DateTime createdAt});
@@ -190,7 +190,7 @@ class _$StatusCopyWithImpl<$Res, $Val extends Status>
     Object? application = freezed,
     Object? poll = freezed,
     Object? reblog = freezed,
-    Object? mediaAttachments = null,
+    Object? mediaAttachments = freezed,
     Object? emojis = null,
     Object? tags = null,
     Object? createdAt = null,
@@ -288,10 +288,10 @@ class _$StatusCopyWithImpl<$Res, $Val extends Status>
           ? _value.reblog
           : reblog // ignore: cast_nullable_to_non_nullable
               as Status?,
-      mediaAttachments: null == mediaAttachments
+      mediaAttachments: freezed == mediaAttachments
           ? _value.mediaAttachments
           : mediaAttachments // ignore: cast_nullable_to_non_nullable
-              as List<MediaAttachment>,
+              as List<MediaAttachment>?,
       emojis: null == emojis
           ? _value.emojis
           : emojis // ignore: cast_nullable_to_non_nullable
@@ -382,7 +382,7 @@ abstract class _$$_StatusCopyWith<$Res> implements $StatusCopyWith<$Res> {
       Application? application,
       Poll? poll,
       Status? reblog,
-      List<MediaAttachment> mediaAttachments,
+      List<MediaAttachment>? mediaAttachments,
       List<Emoji> emojis,
       List<Tag> tags,
       DateTime createdAt});
@@ -430,7 +430,7 @@ class __$$_StatusCopyWithImpl<$Res>
     Object? application = freezed,
     Object? poll = freezed,
     Object? reblog = freezed,
-    Object? mediaAttachments = null,
+    Object? mediaAttachments = freezed,
     Object? emojis = null,
     Object? tags = null,
     Object? createdAt = null,
@@ -528,10 +528,10 @@ class __$$_StatusCopyWithImpl<$Res>
           ? _value.reblog
           : reblog // ignore: cast_nullable_to_non_nullable
               as Status?,
-      mediaAttachments: null == mediaAttachments
+      mediaAttachments: freezed == mediaAttachments
           ? _value._mediaAttachments
           : mediaAttachments // ignore: cast_nullable_to_non_nullable
-              as List<MediaAttachment>,
+              as List<MediaAttachment>?,
       emojis: null == emojis
           ? _value._emojis
           : emojis // ignore: cast_nullable_to_non_nullable
@@ -576,7 +576,7 @@ class _$_Status implements _Status {
       this.application,
       this.poll,
       this.reblog,
-      required final List<MediaAttachment> mediaAttachments,
+      final List<MediaAttachment>? mediaAttachments,
       required final List<Emoji> emojis,
       required final List<Tag> tags,
       required this.createdAt})
@@ -687,15 +687,17 @@ class _$_Status implements _Status {
   final Status? reblog;
 
   /// Media that is attached to this status.
-  final List<MediaAttachment> _mediaAttachments;
+  final List<MediaAttachment>? _mediaAttachments;
 
   /// Media that is attached to this status.
   @override
-  List<MediaAttachment> get mediaAttachments {
+  List<MediaAttachment>? get mediaAttachments {
+    final value = _mediaAttachments;
+    if (value == null) return null;
     if (_mediaAttachments is EqualUnmodifiableListView)
       return _mediaAttachments;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_mediaAttachments);
+    return EqualUnmodifiableListView(value);
   }
 
   /// Custom emoji to be used when rendering status content.
@@ -852,7 +854,7 @@ abstract class _Status implements Status {
       final Application? application,
       final Poll? poll,
       final Status? reblog,
-      required final List<MediaAttachment> mediaAttachments,
+      final List<MediaAttachment>? mediaAttachments,
       required final List<Emoji> emojis,
       required final List<Tag> tags,
       required final DateTime createdAt}) = _$_Status;
@@ -961,7 +963,7 @@ abstract class _Status implements Status {
   @override
 
   /// Media that is attached to this status.
-  List<MediaAttachment> get mediaAttachments;
+  List<MediaAttachment>? get mediaAttachments;
   @override
 
   /// Custom emoji to be used when rendering status content.
