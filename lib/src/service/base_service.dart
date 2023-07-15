@@ -316,7 +316,7 @@ abstract class BaseService implements _Service {
 
               return data;
             } else {
-              return json.map<D>(dataBuilder).toList();
+              return json.map<D>((json) => dataBuilder(json)).toList();
             }
           }()
         : [];
