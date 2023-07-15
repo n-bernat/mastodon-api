@@ -2,13 +2,12 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-import 'dart:io';
-
 import 'package:http/http.dart';
 
 import '../../../core/client/client_context.dart';
 import '../../../core/client/user_context.dart';
 import '../../base_service.dart';
+import '../../entities/fedi_file.dart';
 import '../../entities/media_attachment.dart';
 import '../../entities/media_focal_points.dart';
 import '../../response/mastodon_response.dart';
@@ -56,8 +55,8 @@ abstract class MediaV2Service {
   ///
   /// - https://docs.joinmastodon.org/methods/media/#v2
   Future<MastodonResponse<MediaAttachment>> uploadMedia({
-    required File file,
-    File? thumbnail,
+    required FediFile file,
+    FediFile? thumbnail,
     String? description,
     MediaFocalPoints? focus,
   });
@@ -72,8 +71,8 @@ class _MediaV2Service extends BaseService implements MediaV2Service {
 
   @override
   Future<MastodonResponse<MediaAttachment>> uploadMedia({
-    required File file,
-    File? thumbnail,
+    required FediFile file,
+    FediFile? thumbnail,
     String? description,
     MediaFocalPoints? focus,
   }) async =>
@@ -84,13 +83,13 @@ class _MediaV2Service extends BaseService implements MediaV2Service {
           files: [
             MultipartFile.fromBytes(
               'file',
-              file.readAsBytesSync(),
-              filename: file.uri.pathSegments.last,
+              file.data,
+              filename: file.filename,
             ),
             if (thumbnail != null)
               MultipartFile.fromBytes(
                 'thumbnail',
-                thumbnail.readAsBytesSync(),
+                thumbnail.data,
                 filename: '', //! Thumbnail must be blank.
               )
           ],

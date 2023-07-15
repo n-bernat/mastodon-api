@@ -2,10 +2,11 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:mastodon_api/src/core/client/user_context.dart';
 import 'package:mastodon_api/src/core/exception/mastodon_exception.dart';
+import 'package:mastodon_api/src/service/entities/fedi_file.dart';
 import 'package:mastodon_api/src/service/entities/media_attachment.dart';
 import 'package:mastodon_api/src/service/entities/media_focal_points.dart';
 import 'package:mastodon_api/src/service/entities/rate_limit.dart';
@@ -34,8 +35,14 @@ void main() {
       );
 
       final response = await mediaService.uploadMedia(
-        file: File('test/src/service/v2/media/data/upload_media.json'),
-        thumbnail: File('test/src/service/v2/media/data/upload_media.json'),
+        file: FediFile(
+          data: Uint8List.fromList([]),
+          filename: 'test/src/service/v2/media/data/upload_media.json',
+        ),
+        thumbnail: FediFile(
+          data: Uint8List.fromList([]),
+          filename: 'test/src/service/v2/media/data/upload_media.json',
+        ),
         description: 'test',
         focus: MediaFocalPoints(x: 1.0, y: -1.0),
       );
@@ -59,7 +66,10 @@ void main() {
 
       expectUnauthorizedException(
         () async => await mediaService.uploadMedia(
-          file: File('test/src/service/v2/media/data/upload_media.json'),
+          file: FediFile(
+            data: Uint8List.fromList([]),
+            filename: 'test/src/service/v2/media/data/upload_media.json',
+          ),
         ),
       );
     });
@@ -78,7 +88,10 @@ void main() {
 
       expectRateLimitExceededException(
         () async => await mediaService.uploadMedia(
-          file: File('test/src/service/v2/media/data/upload_media.json'),
+          file: FediFile(
+            data: Uint8List.fromList([]),
+            filename: 'test/src/service/v2/media/data/upload_media.json',
+          ),
         ),
       );
     });
@@ -97,7 +110,10 @@ void main() {
 
       expect(
         () async => await mediaService.uploadMedia(
-          file: File('test/src/service/v2/media/data/upload_media.json'),
+          file: FediFile(
+            data: Uint8List.fromList([]),
+            filename: 'test/src/service/v2/media/data/upload_media.json',
+          ),
         ),
         throwsA(
           allOf(
