@@ -33,7 +33,7 @@ class MediaAttachment with _$MediaAttachment {
     String? remoteUrl,
 
     /// Metadata returned by Paperclip.
-    required MediaMeta meta,
+    MediaMeta? meta,
 
     /// Alternate text that describes what is in the media attachment, to be
     /// used for the visually impaired or when media attachments do not load.

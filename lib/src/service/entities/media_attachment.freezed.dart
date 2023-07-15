@@ -36,7 +36,7 @@ mixin _$MediaAttachment {
   String? get remoteUrl => throw _privateConstructorUsedError;
 
   /// Metadata returned by Paperclip.
-  MediaMeta get meta => throw _privateConstructorUsedError;
+  MediaMeta? get meta => throw _privateConstructorUsedError;
 
   /// Alternate text that describes what is in the media attachment, to be
   /// used for the visually impaired or when media attachments do not load.
@@ -65,11 +65,11 @@ abstract class $MediaAttachmentCopyWith<$Res> {
       String? url,
       String? previewUrl,
       String? remoteUrl,
-      MediaMeta meta,
+      MediaMeta? meta,
       String? description,
       @JsonKey(name: 'blurhash') String? blurHash});
 
-  $MediaMetaCopyWith<$Res> get meta;
+  $MediaMetaCopyWith<$Res>? get meta;
 }
 
 /// @nodoc
@@ -90,7 +90,7 @@ class _$MediaAttachmentCopyWithImpl<$Res, $Val extends MediaAttachment>
     Object? url = freezed,
     Object? previewUrl = freezed,
     Object? remoteUrl = freezed,
-    Object? meta = null,
+    Object? meta = freezed,
     Object? description = freezed,
     Object? blurHash = freezed,
   }) {
@@ -115,10 +115,10 @@ class _$MediaAttachmentCopyWithImpl<$Res, $Val extends MediaAttachment>
           ? _value.remoteUrl
           : remoteUrl // ignore: cast_nullable_to_non_nullable
               as String?,
-      meta: null == meta
+      meta: freezed == meta
           ? _value.meta
           : meta // ignore: cast_nullable_to_non_nullable
-              as MediaMeta,
+              as MediaMeta?,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -132,8 +132,12 @@ class _$MediaAttachmentCopyWithImpl<$Res, $Val extends MediaAttachment>
 
   @override
   @pragma('vm:prefer-inline')
-  $MediaMetaCopyWith<$Res> get meta {
-    return $MediaMetaCopyWith<$Res>(_value.meta, (value) {
+  $MediaMetaCopyWith<$Res>? get meta {
+    if (_value.meta == null) {
+      return null;
+    }
+
+    return $MediaMetaCopyWith<$Res>(_value.meta!, (value) {
       return _then(_value.copyWith(meta: value) as $Val);
     });
   }
@@ -153,12 +157,12 @@ abstract class _$$_MediaAttachmentCopyWith<$Res>
       String? url,
       String? previewUrl,
       String? remoteUrl,
-      MediaMeta meta,
+      MediaMeta? meta,
       String? description,
       @JsonKey(name: 'blurhash') String? blurHash});
 
   @override
-  $MediaMetaCopyWith<$Res> get meta;
+  $MediaMetaCopyWith<$Res>? get meta;
 }
 
 /// @nodoc
@@ -177,7 +181,7 @@ class __$$_MediaAttachmentCopyWithImpl<$Res>
     Object? url = freezed,
     Object? previewUrl = freezed,
     Object? remoteUrl = freezed,
-    Object? meta = null,
+    Object? meta = freezed,
     Object? description = freezed,
     Object? blurHash = freezed,
   }) {
@@ -202,10 +206,10 @@ class __$$_MediaAttachmentCopyWithImpl<$Res>
           ? _value.remoteUrl
           : remoteUrl // ignore: cast_nullable_to_non_nullable
               as String?,
-      meta: null == meta
+      meta: freezed == meta
           ? _value.meta
           : meta // ignore: cast_nullable_to_non_nullable
-              as MediaMeta,
+              as MediaMeta?,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -227,7 +231,7 @@ class _$_MediaAttachment implements _MediaAttachment {
       this.url,
       required this.previewUrl,
       this.remoteUrl,
-      required this.meta,
+      this.meta,
       this.description,
       @JsonKey(name: 'blurhash') this.blurHash});
 
@@ -256,7 +260,7 @@ class _$_MediaAttachment implements _MediaAttachment {
 
   /// Metadata returned by Paperclip.
   @override
-  final MediaMeta meta;
+  final MediaMeta? meta;
 
   /// Alternate text that describes what is in the media attachment, to be
   /// used for the visually impaired or when media attachments do not load.
@@ -319,7 +323,7 @@ abstract class _MediaAttachment implements MediaAttachment {
       final String? url,
       required final String? previewUrl,
       final String? remoteUrl,
-      required final MediaMeta meta,
+      final MediaMeta? meta,
       final String? description,
       @JsonKey(name: 'blurhash') final String? blurHash}) = _$_MediaAttachment;
 
@@ -349,7 +353,7 @@ abstract class _MediaAttachment implements MediaAttachment {
   @override
 
   /// Metadata returned by Paperclip.
-  MediaMeta get meta;
+  MediaMeta? get meta;
   @override
 
   /// Alternate text that describes what is in the media attachment, to be
