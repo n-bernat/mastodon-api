@@ -1423,7 +1423,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
     List<AccountProfileMetaParam>? profileMeta,
   }) async =>
       super.transformSingleDataResponse(
-        await super.patch(
+        await super.patchMultipart(
           UserContext.oauth2Only,
           '/api/v1/accounts/update_credentials',
           body: {
@@ -1432,11 +1432,12 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
             'discoverable': discoverable,
             'bot': bot,
             'locked': locked,
-            'source': {
-              'privacy': defaultSettings?.privacy,
-              'sensitive': defaultSettings?.sensitive,
-              'language': defaultSettings?.language,
-            },
+            if (defaultSettings != null)
+              'source': {
+                'privacy': defaultSettings.privacy,
+                'sensitive': defaultSettings.sensitive,
+                'language': defaultSettings.language,
+              },
             'fields_attributes': profileMeta
                 ?.map(
                   (e) => {
