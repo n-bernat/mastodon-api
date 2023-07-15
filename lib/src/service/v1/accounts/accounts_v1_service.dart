@@ -18,6 +18,7 @@ import '../../entities/account_preferences.dart';
 import '../../entities/empty.dart';
 import '../../entities/familiar_follower.dart';
 import '../../entities/featured_tag.dart';
+import '../../entities/fedi_file.dart';
 import '../../entities/relationship.dart';
 import '../../entities/report.dart';
 import '../../entities/report_category.dart';
@@ -180,7 +181,7 @@ abstract class AccountsV1Service {
   ///
   /// - https://docs.joinmastodon.org/methods/accounts/#verify_credentials
   Future<MastodonResponse<Account>> updateAvatarImage({
-    required File file,
+    required FediFile file,
   });
 
   /// Update the user’s header image.
@@ -1451,7 +1452,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
 
   @override
   Future<MastodonResponse<Account>> updateAvatarImage({
-    required File file,
+    required FediFile file,
   }) async =>
       super.transformSingleDataResponse(
         await super.patchMultipart(
@@ -1460,8 +1461,8 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
           files: [
             MultipartFile.fromBytes(
               'avatar',
-              file.readAsBytesSync(),
-              filename: file.path,
+              file.data,
+              filename: file.filename,
             ),
           ],
         ),
