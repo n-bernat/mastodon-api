@@ -32,6 +32,7 @@ export 'package:mastodon_api/src/service/entities/emoji.dart';
 export 'package:mastodon_api/src/service/entities/emoji_reaction.dart';
 export 'package:mastodon_api/src/service/entities/empty.dart';
 export 'package:mastodon_api/src/service/entities/extended_description.dart';
+export 'package:mastodon_api/src/service/entities/fedi_file.dart';
 export 'package:mastodon_api/src/service/entities/field.dart';
 export 'package:mastodon_api/src/service/entities/instance.dart';
 export 'package:mastodon_api/src/service/entities/instance_accounts_configuration.dart';

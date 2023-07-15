@@ -296,8 +296,30 @@ abstract class BaseService implements _Service {
   MastodonResponse<List<D>> transformMultiDataResponse<D>(
     Response response, {
     required DataBuilder<D> dataBuilder,
+    bool ignoreErrors = false,
   }) {
     final json = jsonDecode(response.body);
+    final data = json.isNotEmpty
+        ? () {
+            if (ignoreErrors) {
+              final data = <D>[];
+              for (var item in json) {
+                try {
+                  data.add(dataBuilder(item));
+                } catch (_) {
+                  // Mastodon tends to return invalid items and it
+                  // breaks the entire response.
+                  // Silently ignore errors to allow for uninterrupted
+                  // user experience.
+                }
+              }
+
+              return data;
+            } else {
+              return json.map<D>(dataBuilder).toList();
+            }
+          }()
+        : [];
 
     return MastodonResponse(
       headers: response.headers,
@@ -309,9 +331,7 @@ abstract class BaseService implements _Service {
       rateLimit: RateLimit.fromJson(
         rateLimitConverter.convert(response.headers),
       ),
-      data: json.isNotEmpty
-          ? json.map<D>((json) => dataBuilder(json)).toList()
-          : [],
+      data: data,
     );
   }
 

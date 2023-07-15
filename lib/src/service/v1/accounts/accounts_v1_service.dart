@@ -1529,6 +1529,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
           },
         ),
         dataBuilder: Status.fromJson,
+        ignoreErrors: true,
       );
 
   @override
@@ -2003,6 +2004,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
           },
         ),
         dataBuilder: Status.fromJson,
+        ignoreErrors: true,
       );
 
   @override

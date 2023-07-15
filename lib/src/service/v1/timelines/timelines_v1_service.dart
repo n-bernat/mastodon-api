@@ -383,6 +383,7 @@ class _TimelinesV1Service extends BaseService implements TimelinesV1Service {
           },
         ),
         dataBuilder: Status.fromJson,
+        ignoreErrors: true,
       );
 
   @override
@@ -432,6 +433,7 @@ class _TimelinesV1Service extends BaseService implements TimelinesV1Service {
           },
         ),
         dataBuilder: Status.fromJson,
+        ignoreErrors: true,
       );
 
   @override

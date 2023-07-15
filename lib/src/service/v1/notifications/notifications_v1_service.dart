@@ -170,6 +170,7 @@ class _NotificationsV1Service extends BaseService
           },
         ),
         dataBuilder: Notification.fromJson,
+        ignoreErrors: true,
       );
 
   @override
