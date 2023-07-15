@@ -299,27 +299,26 @@ abstract class BaseService implements _Service {
     bool ignoreErrors = false,
   }) {
     final json = jsonDecode(response.body);
-    final data = json.isNotEmpty
-        ? () {
-            if (ignoreErrors) {
-              final data = <D>[];
-              for (var item in json) {
-                try {
-                  data.add(dataBuilder(item));
-                } catch (_) {
-                  // Mastodon tends to return invalid items and it
-                  // breaks the entire response.
-                  // Silently ignore errors to allow for uninterrupted
-                  // user experience.
-                }
-              }
-
-              return data;
-            } else {
-              return json.map<D>((json) => dataBuilder(json)).toList();
-            }
-          }()
-        : [];
+    final List<D> data;
+    if (json.isNotEmpty) {
+      if (ignoreErrors) {
+        data = <D>[];
+        for (var item in json) {
+          try {
+            data.add(dataBuilder(item));
+          } catch (_) {
+            // Mastodon tends to return invalid items and it
+            // breaks the entire response.
+            // Silently ignore errors to allow for uninterrupted
+            // user experience.
+          }
+        }
+      } else {
+        data = json.map<D>((json) => dataBuilder(json)).toList();
+      }
+    } else {
+      data = [];
+    }
 
     return MastodonResponse(
       headers: response.headers,
