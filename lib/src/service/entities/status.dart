@@ -103,9 +103,26 @@ class Status with _$Status {
     /// Hashtags used within the status content.
     required List<Tag> tags,
 
+    /// Mentioned users.
+    List<Mention>? mentions,
+
     /// The date when this status was created.
     required DateTime createdAt,
   }) = _Status;
 
   factory Status.fromJson(Map<String, Object?> json) => _$StatusFromJson(json);
+}
+
+@freezed
+class Mention with _$Mention {
+  @JsonSerializable(includeIfNull: false)
+  const factory Mention({
+    required String id,
+    required String username,
+    required String url,
+    required String acct,
+  }) = _Mention;
+
+  factory Mention.fromJson(Map<String, Object?> json) =>
+      _$MentionFromJson(json);
 }

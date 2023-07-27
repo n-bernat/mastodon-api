@@ -69,6 +69,12 @@ _$_Status _$$_StatusFromJson(Map json) => $checkedCreate(
               (v) => (v as List<dynamic>)
                   .map((e) => Tag.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
+          mentions: $checkedConvert(
+              'mentions',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) =>
+                      Mention.fromJson(Map<String, Object?>.from(e as Map)))
+                  .toList()),
           createdAt:
               $checkedConvert('created_at', (v) => DateTime.parse(v as String)),
         );
@@ -130,6 +136,7 @@ Map<String, dynamic> _$$_StatusToJson(_$_Status instance) {
       instance.mediaAttachments?.map((e) => e.toJson()).toList());
   val['emojis'] = instance.emojis.map((e) => e.toJson()).toList();
   val['tags'] = instance.tags.map((e) => e.toJson()).toList();
+  writeNotNull('mentions', instance.mentions?.map((e) => e.toJson()).toList());
   val['created_at'] = instance.createdAt.toIso8601String();
   return val;
 }
@@ -140,3 +147,25 @@ const _$VisibilityEnumMap = {
   Visibility.private: 'private',
   Visibility.direct: 'direct',
 };
+
+_$_Mention _$$_MentionFromJson(Map json) => $checkedCreate(
+      r'_$_Mention',
+      json,
+      ($checkedConvert) {
+        final val = _$_Mention(
+          id: $checkedConvert('id', (v) => v as String),
+          username: $checkedConvert('username', (v) => v as String),
+          url: $checkedConvert('url', (v) => v as String),
+          acct: $checkedConvert('acct', (v) => v as String),
+        );
+        return val;
+      },
+    );
+
+Map<String, dynamic> _$$_MentionToJson(_$_Mention instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'username': instance.username,
+      'url': instance.url,
+      'acct': instance.acct,
+    };

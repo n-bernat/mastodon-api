@@ -106,6 +106,9 @@ mixin _$Status {
   /// Hashtags used within the status content.
   List<Tag> get tags => throw _privateConstructorUsedError;
 
+  /// Mentioned users.
+  List<Mention>? get mentions => throw _privateConstructorUsedError;
+
   /// The date when this status was created.
   DateTime get createdAt => throw _privateConstructorUsedError;
 
@@ -146,6 +149,7 @@ abstract class $StatusCopyWith<$Res> {
       List<MediaAttachment>? mediaAttachments,
       List<Emoji> emojis,
       List<Tag> tags,
+      List<Mention>? mentions,
       DateTime createdAt});
 
   $AccountCopyWith<$Res> get account;
@@ -193,6 +197,7 @@ class _$StatusCopyWithImpl<$Res, $Val extends Status>
     Object? mediaAttachments = freezed,
     Object? emojis = null,
     Object? tags = null,
+    Object? mentions = freezed,
     Object? createdAt = null,
   }) {
     return _then(_value.copyWith(
@@ -300,6 +305,10 @@ class _$StatusCopyWithImpl<$Res, $Val extends Status>
           ? _value.tags
           : tags // ignore: cast_nullable_to_non_nullable
               as List<Tag>,
+      mentions: freezed == mentions
+          ? _value.mentions
+          : mentions // ignore: cast_nullable_to_non_nullable
+              as List<Mention>?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -385,6 +394,7 @@ abstract class _$$_StatusCopyWith<$Res> implements $StatusCopyWith<$Res> {
       List<MediaAttachment>? mediaAttachments,
       List<Emoji> emojis,
       List<Tag> tags,
+      List<Mention>? mentions,
       DateTime createdAt});
 
   @override
@@ -433,6 +443,7 @@ class __$$_StatusCopyWithImpl<$Res>
     Object? mediaAttachments = freezed,
     Object? emojis = null,
     Object? tags = null,
+    Object? mentions = freezed,
     Object? createdAt = null,
   }) {
     return _then(_$_Status(
@@ -540,6 +551,10 @@ class __$$_StatusCopyWithImpl<$Res>
           ? _value._tags
           : tags // ignore: cast_nullable_to_non_nullable
               as List<Tag>,
+      mentions: freezed == mentions
+          ? _value._mentions
+          : mentions // ignore: cast_nullable_to_non_nullable
+              as List<Mention>?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -579,10 +594,12 @@ class _$_Status implements _Status {
       final List<MediaAttachment>? mediaAttachments,
       required final List<Emoji> emojis,
       required final List<Tag> tags,
+      final List<Mention>? mentions,
       required this.createdAt})
       : _mediaAttachments = mediaAttachments,
         _emojis = emojis,
-        _tags = tags;
+        _tags = tags,
+        _mentions = mentions;
 
   factory _$_Status.fromJson(Map<String, dynamic> json) =>
       _$$_StatusFromJson(json);
@@ -722,13 +739,26 @@ class _$_Status implements _Status {
     return EqualUnmodifiableListView(_tags);
   }
 
+  /// Mentioned users.
+  final List<Mention>? _mentions;
+
+  /// Mentioned users.
+  @override
+  List<Mention>? get mentions {
+    final value = _mentions;
+    if (value == null) return null;
+    if (_mentions is EqualUnmodifiableListView) return _mentions;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   /// The date when this status was created.
   @override
   final DateTime createdAt;
 
   @override
   String toString() {
-    return 'Status(id: $id, url: $url, uri: $uri, content: $content, spoilerText: $spoilerText, visibility: $visibility, favouritesCount: $favouritesCount, repliesCount: $repliesCount, reblogsCount: $reblogsCount, language: $language, inReplyToId: $inReplyToId, inReplyToAccountId: $inReplyToAccountId, isFavourited: $isFavourited, isReblogged: $isReblogged, isMuted: $isMuted, isBookmarked: $isBookmarked, isSensitive: $isSensitive, isPinned: $isPinned, lastStatusAt: $lastStatusAt, account: $account, application: $application, poll: $poll, reblog: $reblog, mediaAttachments: $mediaAttachments, emojis: $emojis, tags: $tags, createdAt: $createdAt)';
+    return 'Status(id: $id, url: $url, uri: $uri, content: $content, spoilerText: $spoilerText, visibility: $visibility, favouritesCount: $favouritesCount, repliesCount: $repliesCount, reblogsCount: $reblogsCount, language: $language, inReplyToId: $inReplyToId, inReplyToAccountId: $inReplyToAccountId, isFavourited: $isFavourited, isReblogged: $isReblogged, isMuted: $isMuted, isBookmarked: $isBookmarked, isSensitive: $isSensitive, isPinned: $isPinned, lastStatusAt: $lastStatusAt, account: $account, application: $application, poll: $poll, reblog: $reblog, mediaAttachments: $mediaAttachments, emojis: $emojis, tags: $tags, mentions: $mentions, createdAt: $createdAt)';
   }
 
   @override
@@ -778,6 +808,7 @@ class _$_Status implements _Status {
                 .equals(other._mediaAttachments, _mediaAttachments) &&
             const DeepCollectionEquality().equals(other._emojis, _emojis) &&
             const DeepCollectionEquality().equals(other._tags, _tags) &&
+            const DeepCollectionEquality().equals(other._mentions, _mentions) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt));
   }
@@ -812,6 +843,7 @@ class _$_Status implements _Status {
         const DeepCollectionEquality().hash(_mediaAttachments),
         const DeepCollectionEquality().hash(_emojis),
         const DeepCollectionEquality().hash(_tags),
+        const DeepCollectionEquality().hash(_mentions),
         createdAt
       ]);
 
@@ -857,6 +889,7 @@ abstract class _Status implements Status {
       final List<MediaAttachment>? mediaAttachments,
       required final List<Emoji> emojis,
       required final List<Tag> tags,
+      final List<Mention>? mentions,
       required final DateTime createdAt}) = _$_Status;
 
   factory _Status.fromJson(Map<String, dynamic> json) = _$_Status.fromJson;
@@ -974,10 +1007,203 @@ abstract class _Status implements Status {
   List<Tag> get tags;
   @override
 
+  /// Mentioned users.
+  List<Mention>? get mentions;
+  @override
+
   /// The date when this status was created.
   DateTime get createdAt;
   @override
   @JsonKey(ignore: true)
   _$$_StatusCopyWith<_$_Status> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+Mention _$MentionFromJson(Map<String, dynamic> json) {
+  return _Mention.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Mention {
+  String get id => throw _privateConstructorUsedError;
+  String get username => throw _privateConstructorUsedError;
+  String get url => throw _privateConstructorUsedError;
+  String get acct => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $MentionCopyWith<Mention> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $MentionCopyWith<$Res> {
+  factory $MentionCopyWith(Mention value, $Res Function(Mention) then) =
+      _$MentionCopyWithImpl<$Res, Mention>;
+  @useResult
+  $Res call({String id, String username, String url, String acct});
+}
+
+/// @nodoc
+class _$MentionCopyWithImpl<$Res, $Val extends Mention>
+    implements $MentionCopyWith<$Res> {
+  _$MentionCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? username = null,
+    Object? url = null,
+    Object? acct = null,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      username: null == username
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as String,
+      url: null == url
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String,
+      acct: null == acct
+          ? _value.acct
+          : acct // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_MentionCopyWith<$Res> implements $MentionCopyWith<$Res> {
+  factory _$$_MentionCopyWith(
+          _$_Mention value, $Res Function(_$_Mention) then) =
+      __$$_MentionCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String id, String username, String url, String acct});
+}
+
+/// @nodoc
+class __$$_MentionCopyWithImpl<$Res>
+    extends _$MentionCopyWithImpl<$Res, _$_Mention>
+    implements _$$_MentionCopyWith<$Res> {
+  __$$_MentionCopyWithImpl(_$_Mention _value, $Res Function(_$_Mention) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? username = null,
+    Object? url = null,
+    Object? acct = null,
+  }) {
+    return _then(_$_Mention(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      username: null == username
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as String,
+      url: null == url
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String,
+      acct: null == acct
+          ? _value.acct
+          : acct // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+@JsonSerializable(includeIfNull: false)
+class _$_Mention implements _Mention {
+  const _$_Mention(
+      {required this.id,
+      required this.username,
+      required this.url,
+      required this.acct});
+
+  factory _$_Mention.fromJson(Map<String, dynamic> json) =>
+      _$$_MentionFromJson(json);
+
+  @override
+  final String id;
+  @override
+  final String username;
+  @override
+  final String url;
+  @override
+  final String acct;
+
+  @override
+  String toString() {
+    return 'Mention(id: $id, username: $username, url: $url, acct: $acct)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Mention &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.username, username) ||
+                other.username == username) &&
+            (identical(other.url, url) || other.url == url) &&
+            (identical(other.acct, acct) || other.acct == acct));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, id, username, url, acct);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_MentionCopyWith<_$_Mention> get copyWith =>
+      __$$_MentionCopyWithImpl<_$_Mention>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_MentionToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Mention implements Mention {
+  const factory _Mention(
+      {required final String id,
+      required final String username,
+      required final String url,
+      required final String acct}) = _$_Mention;
+
+  factory _Mention.fromJson(Map<String, dynamic> json) = _$_Mention.fromJson;
+
+  @override
+  String get id;
+  @override
+  String get username;
+  @override
+  String get url;
+  @override
+  String get acct;
+  @override
+  @JsonKey(ignore: true)
+  _$$_MentionCopyWith<_$_Mention> get copyWith =>
       throw _privateConstructorUsedError;
 }
