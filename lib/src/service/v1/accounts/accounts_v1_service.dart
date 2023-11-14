@@ -1585,7 +1585,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       super.transformMultiDataResponse(
         await super.get(
           UserContext.oauth2Only,
-          '/api/v1/accounts/$accountId/lists',
+          '/api/v1/lists',
         ),
         dataBuilder: UserList.fromJson,
       );
