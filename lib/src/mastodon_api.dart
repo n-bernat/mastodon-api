@@ -32,13 +32,15 @@ abstract class MastodonApi {
 
   /// Returns the OEmbed service.
   OEmbedService get oembed;
+
+  String get bearerToken;
 }
 
 class _MastodonApi implements MastodonApi {
   /// Returns the new instance of [_MastodonApi].
   _MastodonApi({
     required String instance,
-    required String bearerToken,
+    required this.bearerToken,
     required Duration timeout,
     RetryConfig? retryConfig,
   })  : v1 = MastodonV1Service(
@@ -74,4 +76,7 @@ class _MastodonApi implements MastodonApi {
 
   @override
   final OEmbedService oembed;
+
+  @override
+  final String bearerToken;
 }
