@@ -433,6 +433,8 @@ abstract class AccountsV1Service {
     List<String>? filteringLanguages,
   });
 
+  Future<MastodonResponse<List<Account>>> getListUsers(String listId);
+
   /// Unfollow the given account.
   ///
   /// ## Parameters
@@ -1642,6 +1644,20 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       final code = response.status.code;
       return code >= 200 && code < 300;
     }
+  }
+
+  @override
+  Future<MastodonResponse<List<Account>>> getListUsers(String listId) async {
+    return super.transformMultiDataResponse(
+      await super.get(
+        UserContext.oauth2Only,
+        '/api/v1/lists/$listId/accounts',
+        queryParameters: {
+          'limit': 0,
+        },
+      ),
+      dataBuilder: Account.fromJson,
+    );
   }
 
   @override
