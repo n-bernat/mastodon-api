@@ -388,6 +388,12 @@ abstract class AccountsV1Service {
     required String accountId,
   });
 
+  Future<bool> setListStatus({
+    required String accountId,
+    required String listId,
+    required bool status,
+  });
+
   /// Follow the given account. Can also be used to update whether to show
   /// reblogs or enable notifications.
   ///
@@ -1581,14 +1587,62 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
   @override
   Future<MastodonResponse<List<UserList>>> lookupContainedLists({
     required String accountId,
-  }) async =>
-      super.transformMultiDataResponse(
+  }) async {
+    if (accountId.isEmpty) {
+      return super.transformMultiDataResponse(
         await super.get(
           UserContext.oauth2Only,
           '/api/v1/lists',
         ),
         dataBuilder: UserList.fromJson,
       );
+    } else {
+      return super.transformMultiDataResponse(
+        await super.get(
+          UserContext.oauth2Only,
+          '/api/v1/accounts/$accountId/lists',
+        ),
+        dataBuilder: UserList.fromJson,
+      );
+    }
+  }
+
+  @override
+  Future<bool> setListStatus({
+    required String accountId,
+    required String listId,
+    required bool status,
+  }) async {
+    if (status) {
+      final response = super.transformSingleDataResponse(
+        await super.post(
+          UserContext.oauth2Only,
+          '/api/v1/lists/$listId/accounts',
+          body: {
+            'account_ids': [accountId],
+          },
+        ),
+        dataBuilder: (_) => null,
+      );
+
+      final code = response.status.code;
+      return code >= 200 && code < 300;
+    } else {
+      final response = super.transformSingleDataResponse(
+        await super.delete(
+          UserContext.oauth2Only,
+          '/api/v1/lists/$listId/accounts',
+          body: {
+            'account_ids': [accountId],
+          },
+        ),
+        dataBuilder: (_) => null,
+      );
+
+      final code = response.status.code;
+      return code >= 200 && code < 300;
+    }
+  }
 
   @override
   Future<MastodonResponse<Relationship>> createFollow({
