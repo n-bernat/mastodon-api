@@ -1621,7 +1621,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
           UserContext.oauth2Only,
           '/api/v1/lists/$listId/accounts',
           body: {
-            'account_ids': [accountId],
+            'account_ids[]': [accountId]
           },
         ),
         dataBuilder: (_) => null,
@@ -1635,7 +1635,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
           UserContext.oauth2Only,
           '/api/v1/lists/$listId/accounts',
           body: {
-            'account_ids': [accountId],
+            'account_ids[]': [accountId]
           },
         ),
         dataBuilder: (_) => null,
