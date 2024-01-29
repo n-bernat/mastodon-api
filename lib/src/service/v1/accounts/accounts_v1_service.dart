@@ -1621,9 +1621,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
         await super.post(
           UserContext.oauth2Only,
           '/api/v1/lists/$listId/accounts',
-          body: {
-            'account_ids[]': [accountId]
-          },
+          queryParameters: <String, String>{'account_ids[]': accountId},
         ),
         dataBuilder: jsonEncode,
       );
@@ -1635,9 +1633,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
         await super.delete(
           UserContext.oauth2Only,
           '/api/v1/lists/$listId/accounts',
-          body: {
-            'account_ids[]': [accountId]
-          },
+          queryParameters: <String, String>{'account_ids[]': accountId},
         ),
         dataBuilder: jsonEncode,
       );

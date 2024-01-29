@@ -52,8 +52,10 @@ abstract class _Service {
 
   Future<Response> delete(
     UserContext userContext,
-    String unencodedPath,
-  );
+    String unencodedPath, {
+    Map<String, dynamic> queryParameters = const {},
+    Map<String, String> body = const {},
+  });
 
   Future<Response> put(
     UserContext userContext,
@@ -175,11 +177,13 @@ abstract class BaseService implements _Service {
   Future<Response> delete(
     UserContext userContext,
     final String unencodedPath, {
+    Map<String, dynamic> queryParameters = const {},
     dynamic body = const {},
   }) async =>
       await _helper.delete(
         userContext,
         unencodedPath,
+        queryParameters: queryParameters,
         body: body,
         validate: checkResponse,
       );

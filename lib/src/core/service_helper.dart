@@ -57,6 +57,8 @@ abstract class Service {
   Future<http.Response> delete(
     UserContext userContext,
     String unencodedPath, {
+    Map<String, dynamic> queryParameters = const {},
+    Map<String, String> body = const {},
     http.Response Function(http.Response response)? validate,
   });
 

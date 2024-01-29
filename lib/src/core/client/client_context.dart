@@ -203,7 +203,7 @@ class _ClientContext implements ClientContext {
     UserContext userContext,
     Uri uri, {
     Map<String, String> headers = const {},
-    dynamic body,
+    body,
   }) async =>
       await _challengeWithRetryIfNecessary(
         _clientResolver.execute(userContext),
