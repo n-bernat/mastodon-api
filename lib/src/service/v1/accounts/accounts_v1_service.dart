@@ -3,6 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 🎯 Dart imports:
+import 'dart:convert';
 import 'dart:io';
 
 // 📦 Package imports:
@@ -1624,7 +1625,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
             'account_ids[]': [accountId]
           },
         ),
-        dataBuilder: (_) => null,
+        dataBuilder: jsonEncode,
       );
 
       final code = response.status.code;
@@ -1638,7 +1639,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
             'account_ids[]': [accountId]
           },
         ),
-        dataBuilder: (_) => null,
+        dataBuilder: jsonEncode,
       );
 
       final code = response.status.code;
