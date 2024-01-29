@@ -1617,7 +1617,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
     required bool status,
   }) async {
     if (status) {
-      final response = super.transformSingleDataResponse(
+      final response = super.transformMultiDataResponse(
         await super.post(
           UserContext.oauth2Only,
           '/api/v1/lists/$listId/accounts',
@@ -1631,7 +1631,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       final code = response.status.code;
       return code >= 200 && code < 300;
     } else {
-      final response = super.transformSingleDataResponse(
+      final response = super.transformMultiDataResponse(
         await super.delete(
           UserContext.oauth2Only,
           '/api/v1/lists/$listId/accounts',
